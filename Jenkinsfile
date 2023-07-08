@@ -12,7 +12,7 @@ node {
                     sh "git config user.email rushidarunte123@gmail.com"
                     sh "git config user.name x64nik"
                     //sh "git switch master"
-                    sh "cat deployment.yaml"
+                    //sh "cat deployment.yaml"
                     sh "sed -i 's+x64nik/basic-flask-app:test.*+x64nik/basic-flask-app:${DOCKERTAG}+g' deployment.yaml"
                     sh "cat deployment.yaml"
                     sh "git add ."
