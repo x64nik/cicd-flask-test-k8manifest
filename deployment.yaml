@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-flask-app-demo-01
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: basic-flask-app-demo-01
+  template:
+    metadata:
+      labels:
+        app: basic-flask-app-demo-01
+    spec:
+      containers:
+        - name: basic-flask-app-demo-01
+          image: x64nik/basic-flask-app:test
+          ports:
+            - containerPort: 5050
+          env:
+            - name: PORT
+              value: "5050"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: basic-flask-app-demo-01
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 5050
+  selector:
+    app: basic-flask-app-demo-01
+
