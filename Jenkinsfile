@@ -18,8 +18,8 @@ node {
           sh "git add ."
           sh "git commit -m 'By Jenkins Job cicd-flask-test1-deploy: ${env.BUILD_NUMBER}'"
           sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/cicd-flask-test-k8manifest.git HEAD:argocd" 
+        } 
       }
     }
   }
-
 }
