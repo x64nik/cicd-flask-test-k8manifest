@@ -1,4 +1,4 @@
-#BuildNo:0
+#BuildNo:latest
 apiVersion: apps/v1
 kind: Deployment
 metadata:
