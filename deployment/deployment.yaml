@@ -39,14 +39,12 @@ kind: IngressRoute
 metadata:
   name: basic-flask-app-demo-01
 spec:
-  rules:
-  - host: "flask.local.rushikesh.de"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: basic-flask-app-demo-01
-            port:
-              number: 5050
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`tflask.local.rushikesh.de`)
+      kind: Rule
+      services:
+        name: basic-flask-app-demo-01
+        port:
+          number: 5050
