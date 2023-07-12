@@ -1,4 +1,4 @@
-#BuildNo:latest
+#BuildNo:7
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: basic-flask-app-demo-01
-          image: x64nik/argo-flask-apps:latest
+          image: x64nik/argo-flask-apps:7
           ports:
             - containerPort: 5050
           env:
