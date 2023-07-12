@@ -38,13 +38,14 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: basic-flask-app-demo-01
+  # namespace: default
 spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`tflask.local.rushikesh.de`)
-      kind: Rule
+    - kind: Rule
+      match: Host(`flask.local.rushikesh.de`)
+      priority: 10
       services:
-        name: basic-flask-app-demo-01
-        port:
-          number: 5050
+        - name: basic-flask-app-demo-01
+          port: 80
