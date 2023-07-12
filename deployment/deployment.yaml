@@ -27,10 +27,26 @@ kind: Service
 metadata:
   name: basic-flask-app-demo-01
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 80
       targetPort: 5050
   selector:
     app: basic-flask-app-demo-01
-
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: basic-flask-app-demo-01
+spec:
+  rules:
+  - host: "flask.local.rushikesh.de"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: basic-flask-app-demo-01
+            port:
+              number: 5050
