@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: basic-flask-app-demo-01
-          image: x64nik/basic-flask-app:latest
+          image: x64nik/argo-flask-apps:latest
           ports:
             - containerPort: 5050
           env:
