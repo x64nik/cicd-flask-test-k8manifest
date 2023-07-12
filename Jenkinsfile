@@ -20,7 +20,7 @@ node {
           sh "cat deployment/deployment.yaml"
           sh "git add ."
           sh "git commit -a -m 'By Jenkins Job cicd-flask-test1-deploy:${env.BUILD_NUMBER}'"
-          sh "git push https://${git_token}@github.com/${GIT_USERNAME}/cicd-flask-test-k8manifest.git HEAD:argocd" 
+          sh "git push https://${git_token}@github.com/x64nik/cicd-flask-test-k8manifest.git HEAD:argocd" 
         } 
       }
     }
