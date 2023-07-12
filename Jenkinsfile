@@ -10,7 +10,7 @@ node {
     script {
 
       catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-        withCredentials([usernamePassword(credentialsId: 'GIT_HUB_CREDENTIALS', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+        withCredentials([string(credentialsId: 'GIT_TOKEN', variable: 'git_token')]) {
           
 
           sh 'git config credentials.helper "/opt/helper.sh"'
@@ -20,7 +20,7 @@ node {
           sh "cat deployment/deployment.yaml"
           sh "git add ."
           sh "git commit -a -m 'By Jenkins Job cicd-flask-test1-deploy:${env.BUILD_NUMBER}'"
-          sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/cicd-flask-test-k8manifest.git HEAD:argocd" 
+          sh "git push https://${git_token}@github.com/${GIT_USERNAME}/cicd-flask-test-k8manifest.git HEAD:argocd" 
         } 
       }
     }
