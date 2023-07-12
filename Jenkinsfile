@@ -15,7 +15,7 @@ node {
       sh "cat deployment/deployment.yaml"
       sh "git add ."
       sh "git commit -a -m 'By Jenkins Job cicd-flask-test1-deploy:${env.BUILD_NUMBER}'"
-      sh "git push"
+      sh "git push origin HEAD:argocd"
     }
   }
 
