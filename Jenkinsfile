@@ -6,4 +6,10 @@ node {
 
   }
 
+  stage('Update Deployment file') {
+    sshagent(['git_ssh_key']) {
+      sh "echo ok"
+    }
+  }
+
 }
