@@ -42,6 +42,10 @@ metadata:
 spec:
   entryPoints:
     - websecure
+  tls:
+  hosts:
+  - flask.local.rushikesh.de
+  secretName: ssl-cert
   routes:
     - kind: Rule
       match: Host(`flask.local.rushikesh.de`)
@@ -49,7 +53,4 @@ spec:
       services:
         - name: basic-flask-app-demo-01
           port: 80
-tls:
-  hosts:
-  - flask.local.rushikesh.de
-  secretName: ssl-cert
+
