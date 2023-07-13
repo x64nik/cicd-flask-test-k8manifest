@@ -50,7 +50,5 @@ spec:
         - name: basic-flask-app-demo-01
           port: 80
   tls:
-    hosts:
-    - flask.local.rushikesh.de
     secretName: tlssecret
 
