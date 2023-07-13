@@ -45,7 +45,7 @@ spec:
   tls:
   hosts:
   - flask.local.rushikesh.de
-  secretName: ssl-cert
+  secretName: tlssecret
   routes:
     - kind: Rule
       match: Host(`flask.local.rushikesh.de`)
