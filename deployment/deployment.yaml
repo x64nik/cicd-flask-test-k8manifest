@@ -40,6 +40,10 @@ metadata:
   name: basic-flask-app-demo-01
   # namespace: default
 spec:
+  tls:
+  - hosts:
+    - "flask.local.rushikesh.de"
+    secretName: ssl-cert
   entryPoints:
     - websecure
   routes:
@@ -49,5 +53,3 @@ spec:
       services:
         - name: basic-flask-app-demo-01
           port: 80
-tls:
-  - secretName: public-tls-cert
