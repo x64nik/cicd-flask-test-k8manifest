@@ -51,5 +51,5 @@ spec:
           port: 80
 tls:
   hosts:
-  - "flask.local.rushikesh.de"
+  - flask.local.rushikesh.de
   secretName: ssl-cert
